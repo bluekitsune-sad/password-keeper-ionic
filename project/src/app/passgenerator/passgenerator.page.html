@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+          Password generator
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <section class="content">
+      <ion-card color="darkish" class="content_card">
+          <ion-card-header>
+              <ion-card-title class="ion-text-center content__title">Generate your password</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+              <div class="generated">
+                  <span class="generated_pass enabled-{{hasGenerated}}">{{ passGenerated }}</span>
+                  <button class="clear-btn copy_btn" [disabled]="!hasGenerated" (click)="onCopy()">
+                      <ion-icon name="copy-outline"></ion-icon>
+                  </button>
+              </div>
+              <div class="generation ion-padding">
+                  <div class="generation_length">
+                      <div class="generation_length_label">
+                          <span>Character length</span>
+                          <span class="generation_length__characters">{{ passLength }}</span>
+                      </div>
+                      <ion-range
+                          class="generation_length__range"
+                          aria-label="Password length"
+                          color="light"
+                          min="6" max="15"
+                          [value]="passLength"
+                          (ionInput)="onLengthRangeChange($event)"
+                      ></ion-range>
+                  </div>
+
+                  <div class="generation_options">
+                      <div><ion-checkbox labelPlacement="end" [(ngModel)]="this.checkOptions.lowercase" (ionChange)="onOptionsChange()">Lowercase letter</ion-checkbox></div>
+                      <div><ion-checkbox labelPlacement="end" [(ngModel)]="checkOptions.uppercase" (ionChange)="onOptionsChange()">Uppercase letter</ion-checkbox></div>
+                      <div><ion-checkbox labelPlacement="end" [(ngModel)]="checkOptions.numbers" (ionChange)="onOptionsChange()">Numbers</ion-checkbox></div>
+                      <div><ion-checkbox labelPlacement="end"[(ngModel)]="checkOptions.specials" (ionChange)="onOptionsChange()">Special characters</ion-checkbox></div>
+                  </div>
+
+                  <div class="generation_strenght">
+                      <span class="generation_strenght__text">Password strenght</span>
+                      <div class="generation_strenght__icon">
+                          <icon-strength-level
+                              [level]="passStrenght"
+                              accentColor="#3D8E44"
+                          ></icon-strength-level>
+                      </div>
+                  </div>
+
+                  <div class="generation_actions">
+                    <!-- Save Password Button -->
+                    <!-- <ion-button expand="full" color="success" [disabled]="!safepass" (click)="onSave()">Save Password</ion-button> -->
+
+                    <!-- Generate Password Button -->
+                    <ion-button expand="full" color="success" [disabled]="!safepass" (click)="onGenerate()">Generate Password</ion-button>
+
+                    <!-- Go to Customer Page Button -->
+                    <ion-button expand="full" color="success" (click)="goToCustomerPage()">Go to Customer Page</ion-button>
+                </div>
+              </div>
+
+          </ion-card-content>
+      </ion-card>
+  </section>
+
+</ion-content>

@@ -1,0 +1,34 @@
+@mixin addColor($color) {
+    fill: var($color);
+    stroke: var($color);
+}
+
+.phone-signal {
+    &.lvl-1 {
+        .lvl-1 {
+            @include addColor(--ion-color-danger);
+        }
+    }
+
+    &.lvl-2 {
+        .lvl-1,
+        .lvl-2 {
+            @include addColor(--ion-color-warning);
+        }
+    }
+    &.lvl-3 {
+        .lvl-1,
+        .lvl-2,
+        .lvl-3 {
+            @include addColor(--accent-color);
+        }
+    }
+    &.lvl-4 {
+        .lvl-1,
+        .lvl-2,
+        .lvl-3,
+        .lvl-4 {
+            @include addColor(--accent-color);
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Display the username in the title -->
+    <ion-title>{{ username }}</ion-title>
+    <!-- Add button to navigate to passgenerator page -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToPassGeneratorPage()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- Display the username in the collapsed header -->
+      <ion-title size="large">{{ username }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Display saved passwords in a list -->
+  <ion-list>
+    <ion-item *ngFor="let password of savedPasswords">
+      <ion-label>{{ password.name }}</ion-label>
+      <ion-label>{{ password.pass }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

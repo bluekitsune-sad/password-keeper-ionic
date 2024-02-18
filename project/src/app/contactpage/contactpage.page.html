@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <section class="content">
+    <ion-card color="darkish" class="content_card">
+      <ion-card-content>
+        <form (ngSubmit)="submitForm()">
+          <ion-item>
+            <ion-label position="floating">Your Name</ion-label>
+            <ion-input type="text" [(ngModel)]="userName" name="userName" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Your Email</ion-label>
+            <ion-input type="email" [(ngModel)]="userEmail" name="userEmail" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Complaint (max 500 words)</ion-label>
+            <ion-textarea
+              [(ngModel)]="complaint"
+              name="complaint"
+              rows="6"
+              maxlength="500"
+              required
+            ></ion-textarea>
+          </ion-item>
+
+          <ion-button expand="full" type="submit" color="success">Submit</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

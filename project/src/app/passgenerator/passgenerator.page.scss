@@ -1,0 +1,121 @@
+.content__title {
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    font-weight: 500;
+}
+
+.clear-btn {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.copy_btn {
+    color: var(--ion-color-success);
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--ion-color-medium);
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &_card {
+        width: clamp(320px, 30rem, 400px);
+    }
+}
+.generated {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid var(--ion-color-light-shade);
+
+    &_pass {
+        font-family: var(--font-kanit);
+        font-size: 1rem;
+        font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+        color: var(--ion-color-medium-tint);
+        letter-spacing: 0.05rem;
+
+        &.enabled-true {
+            color: var(--ion-color-primary-contrast);
+        }
+    }
+}
+
+.generation {
+
+    &_length {
+        margin-bottom: 1rem;
+
+        &__range {
+            width: 100%;
+            display: block;
+        }
+
+        &_label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__characters {
+            font-family: var(--font-kanit);
+            font-size: 1.75rem;
+            color: var(--ion-color-success);
+        }
+    }
+
+    &_options {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 1rem;
+    }
+
+    &_strenght {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0.75rem;
+        background-color: rgba(var(--ion-color-light-rgb),0.1);
+
+        &__text {
+            font-family: var(--font-kanit);
+            font-size: 0.7rem;
+            font-size: clamp(0.7rem, 0.5rem + 0.3vw, 1.2rem);
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+        }
+        &__icon {
+            width: 50px;
+            height: 35px;
+        }
+    }
+}
+
+:host .teste svg .ionicon-fill-none {
+    stroke: green !important;
+    fill: green !important;
+}
+
+ ion-range {
+    --ion-color-base: #3D8E44 !important;
+    --bar-background: #100F15;
+    --bar-background-active: #100F15;
+    --knob-background: #cacace;
+    --knob-size: 20px;
+}
+
+ion-checkbox {
+    --checkbox-background-checked: var(--ion-color-success);
+    --border-color-checked: var(--ion-color-success);
+  }
